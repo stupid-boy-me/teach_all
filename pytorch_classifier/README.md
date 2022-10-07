@@ -1,1 +1,1 @@
-这是pytorch的图像分类
+1.这是pytorch的图像分类
