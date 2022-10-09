@@ -1,4 +1,6 @@
 这里面会放一些处理数据的脚本工具
+
+
 data_split.py 是将数据划分成train、val、test[可以自己设置比例]
     一开始的数据格式 图片：![data_split](https://user-images.githubusercontent.com/56495543/194759282-b02c3802-92bb-43e7-8dce-764718c722b4.png)
 
