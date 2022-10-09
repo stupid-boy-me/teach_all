@@ -17,6 +17,7 @@ def data_set_split(src_data_folder, target_data_folder, train_scale=0.8, val_sca
     :return:
     '''
     print("开始数据集划分")
+    random.seed(0)  # 保证随机结果可复现
     class_names = os.listdir(src_data_folder)
     print("class_names",class_names)
     '''第一步：在目标目录下创建文件夹'''
@@ -48,9 +49,6 @@ def data_set_split(src_data_folder, target_data_folder, train_scale=0.8, val_sca
     with open('class_indices.json', 'w') as json_file:
         json_file.write(json_str)
 
-
-
-
     for class_name in tqdm(class_names):
         current_class_data_path = os.path.join(src_data_folder, class_name)
         current_all_data = os.listdir(current_class_data_path)
@@ -72,21 +70,21 @@ def data_set_split(src_data_folder, target_data_folder, train_scale=0.8, val_sca
         for i in current_data_index_list:  # 打乱后的[0,1,2,...,131]
             src_img_path = os.path.join(current_class_data_path, current_all_data[i])
             if current_idx <= train_stop_flag:
-                copy2(src_img_path, train_folder)
+                # copy2(src_img_path, train_folder)
                 # print("{}复制到了{}".format(src_img_path, train_folder))
                 train_num = train_num + 1
                 '''添加内容'''
                 train_images_path.append(src_img_path)
                 train_images_label.append(image_class)
             elif (current_idx > train_stop_flag) and (current_idx <= val_stop_flag):
-                copy2(src_img_path, val_folder)
+                #copy2(src_img_path, val_folder)
                 # print("{}复制到了{}".format(src_img_path, val_folder))
                 val_num = val_num + 1
                 '''添加内容'''
                 val_images_path.append(src_img_path)
                 val_images_label.append(image_class)
             else:
-                copy2(src_img_path, test_folder)
+                # copy2(src_img_path, test_folder)
                 # print("{}复制到了{}".format(src_img_path, test_folder))
                 test_num = test_num + 1
                 '''添加内容'''
@@ -100,16 +98,16 @@ def data_set_split(src_data_folder, target_data_folder, train_scale=0.8, val_sca
         print("训练集{}：{}张".format(train_folder, train_num))
         print("验证集{}：{}张".format(val_folder, val_num))
         print("测试集{}：{}张".format(test_folder, test_num))
-        print("train_images_path",train_images_path)
-        print("train_images_label",train_images_label)
-        print("val_images_path",val_images_path)
-        print("val_images_label",val_images_label)
+        # print("train_images_path",train_images_path)
+        # print("train_images_label",train_images_label)
+        # print("val_images_path",val_images_path)
+        # print("val_images_label",val_images_label)
     return train_images_path, train_images_label, val_images_path, val_images_label
 
-if __name__ == '__main__':
-    src_data_folder = r"E:\Project\tiankong_datasets\script\deep_learning_me\pytorch_classification_me\resnet\data"
-    target_data_folder = r"E:\Project\tiankong_datasets\script\deep_learning_me\pytorch_classification_me\resnet\data_output"
-    data_set_split(src_data_folder, target_data_folder)
+# if __name__ == '__main__':
+#     src_data_folder = r"E:\Project\tiankong_datasets\script\deep_learning_me\pytorch_classification_me\resnet\data"
+#     target_data_folder = r"E:\Project\tiankong_datasets\script\deep_learning_me\pytorch_classification_me\resnet\data_output"
+#     data_set_split(src_data_folder, target_data_folder)
 
 '''
 https://blog.csdn.net/ECHOSON/article/details/108242639?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-108242639-blog-121415555.pc_relevant_3moth
