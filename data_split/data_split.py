@@ -6,6 +6,7 @@ from tqdm import tqdm
 
 
 def data_set_split(src_data_folder, target_data_folder, train_scale=0.8, val_scale=0.1, test_scale=0.1):
+    random.seed(0)  # 保证随机结果可复现
     '''
     读取源数据文件夹，生成划分好的文件夹，分为trian、val、test三个文件夹进行
     :param src_data_folder: 源文件夹 E:\Project\tiankong_datasets\script\deep_learning_me\pytorch_classification_me\resnet\data_animals_ten\animals10\raw-img
