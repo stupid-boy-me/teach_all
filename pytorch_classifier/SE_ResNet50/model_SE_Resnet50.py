@@ -130,6 +130,7 @@ class SEResNet(nn.Module):
         x = self.avgpool(x)
         x = x.view(x.shape[0],2048) # 2048
         x = torch.flatten(x, 1)
+        x = self.fc(x)
         return x
 
 
