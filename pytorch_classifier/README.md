@@ -1,6 +1,4 @@
-==============================这是pytorch的图像分类=======================================
-
-- [ResNet [ 完成]](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50)
+- [ResNet](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50) [ 完成]
 - [SE-ResNet50](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/SE_ResNet50)[完成]
 - SE-ResNeXt[待续ing]
 - [RegNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/regnet)[待续ing]
@@ -29,5 +27,3 @@
 - [MViT](https://github.com/open-mmlab/mmclassification/tree/master/configs/mvit)[待续ing]
 - [EfficientFormer](https://github.com/open-mmlab/mmclassification/tree/master/configs/efficientformer)[待续ing]
 - [HorNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/hornet)[待续ing]
-
-
