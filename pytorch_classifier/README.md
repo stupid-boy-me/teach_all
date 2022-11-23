@@ -1,7 +1,33 @@
 ==============================这是pytorch的图像分类=======================================
 
-[ResNet [ 完成]](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50)
-
-SE-ResNet50
+- [ResNet [ 完成]](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50)
+- [SE-ResNet50](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/SE_ResNet50)[完成]
+- SE-ResNeXt[待续ing]
+- [RegNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/regnet)[待续ing]
+- [ShuffleNetV1](https://github.com/open-mmlab/mmclassification/tree/master/configs/shufflenet_v1)[待续ing]
+- [ShuffleNetV2](https://github.com/open-mmlab/mmclassification/tree/master/configs/shufflenet_v2)[待续ing]
+- [MobileNetV1](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/MobileNet/MobileNetV1)[完成]
+- [MobileNetV2](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/MobileNet/MobileNetV2)[完成]
+- [MobileNetV3](https://github.com/open-mmlab/mmclassification/tree/master/configs/mobilenet_v3)[完成]
+- [Swin-Transformer](https://github.com/open-mmlab/mmclassification/tree/master/configs/swin_transformer)[待续ing]
+- [RepVGG](https://github.com/open-mmlab/mmclassification/tree/master/configs/repvgg)[待续ing]
+- [Vision-Transformer](https://github.com/open-mmlab/mmclassification/tree/master/configs/vision_transformer)[待续ing]
+- [Transformer-in-Transformer](https://github.com/open-mmlab/mmclassification/tree/master/configs/tnt)[待续ing]
+- [Res2Net](https://github.com/open-mmlab/mmclassification/tree/master/configs/res2net)[待续ing]
+- [MLP-Mixer](https://github.com/open-mmlab/mmclassification/tree/master/configs/mlp_mixer)[待续ing]
+- [DeiT](https://github.com/open-mmlab/mmclassification/tree/master/configs/deit)[待续ing]
+- [Conformer](https://github.com/open-mmlab/mmclassification/tree/master/configs/conformer)[待续ing]
+- [T2T-ViT](https://github.com/open-mmlab/mmclassification/tree/master/configs/t2t_vit)[待续ing]
+- [Twins](https://github.com/open-mmlab/mmclassification/tree/master/configs/twins)[待续ing]
+- [EfficientNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/efficientnet)[待续ing]
+- [ConvNeXt](https://github.com/open-mmlab/mmclassification/tree/master/configs/convnext)[待续ing]
+- [HRNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/hrnet)[待续ing]
+- [VAN](https://github.com/open-mmlab/mmclassification/tree/master/configs/van)[待续ing]
+- [ConvMixer](https://github.com/open-mmlab/mmclassification/tree/master/configs/convmixer)[待续ing]
+- [CSPNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/cspnet)[待续ing]
+- [PoolFormer](https://github.com/open-mmlab/mmclassification/tree/master/configs/poolformer)[待续ing]
+- [MViT](https://github.com/open-mmlab/mmclassification/tree/master/configs/mvit)[待续ing]
+- [EfficientFormer](https://github.com/open-mmlab/mmclassification/tree/master/configs/efficientformer)[待续ing]
+- [HorNet](https://github.com/open-mmlab/mmclassification/tree/master/configs/hornet)[待续ing]
 
 
