@@ -33,19 +33,13 @@
 
     - 准确率（Accuracy）—— 针对整个模型
 
-      
-
     - 精确率（Precision）
 
     - 灵敏度（Sensitivity）：就是召回率（Recall）= TPR
 
     - 特异度（Specificity）
 
-      
-
     - P-R曲线
-
-      
 
   - **三级指标**
 
@@ -57,27 +51,11 @@
 
 - **3.实际应用：将[混淆矩阵，ROC曲线，AUC面积]用于MobileNetV3的应用案例**
 
+|本文参考链接|参考链接：[https://blog.csdn.net/qq_44599368/article/details/121082272](https://blog.csdn.net/qq_44599368/article/details/121082272)|
+|-|-|
+|数据绘制表格|[https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法](https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法)|
+|服务器的tensorboard如何可视化|[https://blog.csdn.net/qq_33431368/article/details/121943102](https://blog.csdn.net/qq_33431368/article/details/121943102)|
+|Pytorch 多分类模型绘制 ROC, PR 曲线|[https://blog.csdn.net/PanYHHH/article/details/110741286](https://blog.csdn.net/PanYHHH/article/details/110741286)|
+|scikit-learn的安装|[https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn](https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn)|
 
-
-[1.分类模型评判指标 - 混淆矩阵](https://www.wolai.com/88n2SjzMd1KpJyZL8bzebB)
-
-[2.分类模型评判指标- ROC曲线与AUC面积](https://www.wolai.com/89brHhKdj5ZYNyXEe1kf2m)
-
-参考链接：[https://blog.csdn.net/qq_44599368/article/details/121082272](https://blog.csdn.net/qq_44599368/article/details/121082272)
-
-[https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法](https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法)
-
-服务器的tensorboard如何可视化：[https://blog.csdn.net/qq_33431368/article/details/121943102](https://blog.csdn.net/qq_33431368/article/details/121943102)
-
-[http://127.0.0.1:16006/](http://127.0.0.1:16006/)
-
-# Pytorch 多分类模型绘制 ROC, PR 曲线
-
-[https://blog.csdn.net/PanYHHH/article/details/110741286](https://blog.csdn.net/PanYHHH/article/details/110741286)
-
-## 指定源安装
-
-[https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn](https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn)
-
-pip install scikit-learn -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple)
 
