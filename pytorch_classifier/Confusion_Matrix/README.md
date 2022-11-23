@@ -99,8 +99,3 @@ $$
 
 - **实际应用：将[混淆矩阵，ROC曲线，AUC面积]用于MobileNetV3的应用案例**
 
-
-
-[1.分类模型评判指标 - 混淆矩阵](https://www.wolai.com/88n2SjzMd1KpJyZL8bzebB)
-
-[2.分类模型评判指标- ROC曲线与AUC面积](https://www.wolai.com/89brHhKdj5ZYNyXEe1kf2m)
