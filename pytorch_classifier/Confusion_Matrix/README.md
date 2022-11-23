@@ -53,7 +53,7 @@
 
 |本文参考链接|参考链接：[https://blog.csdn.net/qq_44599368/article/details/121082272](https://blog.csdn.net/qq_44599368/article/details/121082272)|
 |-|-|
-|数据绘制表格|[https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法](https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法)|
+|数据绘制表格|[https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 1 1．add_rows ()方法 2 2．draw ()方法 3,3．header ()方法 4 4．set_cols_align ()方法 5 5．set_cols_dtype ()方法](https://zhuanlan.zhihu.com/p/265107997#:~:text=Python为输出的数据绘制表格 )|
 |服务器的tensorboard如何可视化|[https://blog.csdn.net/qq_33431368/article/details/121943102](https://blog.csdn.net/qq_33431368/article/details/121943102)|
 |Pytorch 多分类模型绘制 ROC, PR 曲线|[https://blog.csdn.net/PanYHHH/article/details/110741286](https://blog.csdn.net/PanYHHH/article/details/110741286)|
 |scikit-learn的安装|[https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn](https://blog.csdn.net/qq_43377653/article/details/127580666#:~:text=安装 sklearn 1. 安装 numpy scipy matplot pip3,只为当前用户 安装 ： pip3 install -- user scikit-learn)|
