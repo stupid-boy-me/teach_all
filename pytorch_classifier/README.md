@@ -1,5 +1,5 @@
 - Supported backbones
-  - [ResNet](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50) 
+  - [ResNet50](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/ResNet50) 
   - [SE-ResNet50](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/SE_ResNet50)
   - SE-ResNeXt
   - RegNet
