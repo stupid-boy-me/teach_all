@@ -10,16 +10,6 @@
 |data_split|数据集的划分|
 |docs|存放一些数据分析的脚本|
 |pytorch_classifier|Pytorch的图像分类|
+|动物数据集地址|链接：[https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ](https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ)<br>提取码：qdbo|
 
 
-
-
-  
-
-  
-
-  
-
-  
-
-  
