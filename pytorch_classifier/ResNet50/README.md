@@ -6,6 +6,5 @@
 |test.py|预测脚本|[https://github.com/stupid-boy-me/teach_all/blob/main/pytorch_classifier/ResNet50/test.py](https://github.com/stupid-boy-me/teach_all/blob/main/pytorch_classifier/ResNet50/test.py)|[https://www.bilibili.com/video/BV1Te4y1e7gb/?spm_id_from=333.999.0.0&vd_source=5ba1bf3a19888ef725acbeaf5d3fc6e6](https://www.bilibili.com/video/BV1Te4y1e7gb/?spm_id_from=333.999.0.0&vd_source=5ba1bf3a19888ef725acbeaf5d3fc6e6)|
 |动物数据集地址|链接：[https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ](https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ)<br>提取码：qdbo|||
 |||||
-|-|-|-|-|
 |resnet.py|所有的resnet模型|||
 #### 说明：数据集的数据会有一些4通道的图像，你需要使用"判断是否是RGB格式.py"的脚本对其进行删除。
