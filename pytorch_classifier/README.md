@@ -7,7 +7,7 @@
   - ShuffleNetV2
   - [MobileNetV1](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/MobileNet/MobileNetV1)
   - [MobileNetV2](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/MobileNet/MobileNetV2)
-  - MobileNetV3
+  - [MobileNetV3](https://github.com/stupid-boy-me/teach_all/tree/main/pytorch_classifier/MobileNet/MobileNetV3)
   - Swin-Transformer
   - RepVGG
   - Vision-Transformer
