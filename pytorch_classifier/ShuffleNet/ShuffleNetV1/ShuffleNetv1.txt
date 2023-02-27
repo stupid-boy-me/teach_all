@@ -1,0 +1,57 @@
+ShuffleNetV1 网络深度解析与Pytorch实现
+'''
+参考链接: https://blog.csdn.net/qq_38675397/article/details/104247192
+         https://blog.csdn.net/BIT_Legend/article/details/123386705
+         https://blog.csdn.net/qq_57886603/article/details/121531939
+
+论文地址: https://arxiv.org/pdf/1707.01083.pdf
+'''
+正文
+1.原理解析
+    (1)channel shuffle
+2.网络结构
+    (1)ShuffleNet Unit  单元
+    (2)ShuffleNetv1整体结构流程图
+3.ShuffleNetv1实现
+    (1)Unit实现
+    (2)ShuffleNetv1实现
+
+正文
+ShuffleNet是旷视研究的轻量级网络，主要针对移动端、嵌入端的落地
+1.原理解析
+    MobileNet主要是对分组卷积的极致利用,同时采用pointwise conv来解决不同通道信息
+       无法交流的问题
+    ShuffleNet同样采用分组卷积的手段来降低网络的参数量，
+       但是提出的channel shuffle操作来解决不同通道信息无法交流的问题
+    (1)channel shuffle
+    channel shuffle原理的图解释：
+    /algdata01/yiguo.huang/hyg_deep_learning_me/ShuffleNet/ShuffleNetv1/channel shuffle.png
+    图说明:feature map是由多个分组卷积的输出叠加而成，不同组的输出feature之间相互独立，阻碍了不同
+        组间的信息流动，从而降低了信息的表达能力。为了解决这个问题，如图（b）所示，将每组的输出feature
+        进一步分组，将不同组的feature进行混洗，如图（c）所示，从而得到了论文中的channel shuffle操作。
+2.网络结构
+    (1)ShuffleNet Unit  单元
+        /algdata01/yiguo.huang/hyg_deep_learning_me/ShuffleNet/ShuffleNetv1/ShuffleNet Unit.png
+        (a)是MobileNet的depthwise conv结构，
+        (b)是ShuffleNet的组卷积GConv+channel shuffle操作的Unit,
+        (c)是针对stride=2的设计的Unit
+    (2)ShuffleNetv1整体结构流程图
+        /algdata01/yiguo.huang/hyg_deep_learning_me/ShuffleNet/ShuffleNetv1/ShuffleNetv1结构图.png
+        整个网络结构的搭建主要分为三个阶段：
+        (1)每个阶段的第一个block的步长为2，下一阶段的通道翻倍
+        (2)每个阶段内的除步长其他超参数保持不变
+        (3)每个ShuffleNet unit的bottleneck通道数为输出的1/4(和ResNet设置一致)
+
+
+3.ShuffleNetv1实现
+    (1)Unit实现
+
+    (2)ShuffleNetv1实现
+
+pytorch：F.relu() 与 nn.ReLU() 的区别
+    import torch.nn.functional as F   F.relu(input)
+    import torch.nn as nn             nn.ReLU()
+    其实这两种方法都是使用relu激活，只是使用的场景不一样，
+    F.relu()是函数调用，一般使用在foreward函数里。
+    而nn.ReLU()是模块调用，一般在定义网络层的时候使用。
+重点去看一下这个人写的：https://github.com/megvii-model/ShuffleNet-Series
