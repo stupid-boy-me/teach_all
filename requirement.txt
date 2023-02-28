@@ -1,3 +1,4 @@
+# pip install -r requirement.txt
 absl-py==0.14.1
 addict==2.4.0
 blessings==1.7
