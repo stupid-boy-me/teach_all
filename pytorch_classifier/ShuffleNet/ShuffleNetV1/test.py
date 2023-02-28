@@ -3,16 +3,17 @@ import json
 import sys
 import logging
 import torch
+import argparse
 from PIL import Image
 from torchvision import transforms
-from MobileNetv1 import MobileNetV1
+from ShuffleNetv1 import shuffleNet_g2_
 import argparse
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Training with pytorch')
-parser.add_argument("--test_dir",default='/algdata01/yiguo.huang/hyg_deep_learning_me/Dataset/animals_output/test//',type=str,help='type of dataset')
-parser.add_argument("--weights_path",default='/algdata01/yiguo.huang/hyg_deep_learning_me/MobileNet/MobileNetv1/weights_MobileNetV1/model_new-250-of-1000-0.2691909968852997-0.7758793969849246.pth',type=str,help='weights_path')
-parser.add_argument("--json_path",default='/algdata01/yiguo.huang/hyg_deep_learning_me/MobileNet/MobileNetv1/class_indices.json',type=str,help='json_path')
+parser.add_argument("--test_dir",default='测试集的路径')
+parser.add_argument("--weights_path",default='权重路径',type=str,help='weights_path')
+parser.add_argument("--json_path",default='json路径',type=str,help='json_path')
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -23,7 +24,7 @@ def trf():
         transforms.RandomResizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize([0.5279928, 0.511028, 0.42828828], [0.23147886, 0.23197113, 0.23426318])])
+        transforms.Normalize([0.5264564, 0.50593895, 0.4213394], [0.22119416, 0.21914542, 0.2205354])])
     return data_transform
 
 
@@ -50,7 +51,7 @@ def main():
                 image = trf()(image)
                 image = torch.unsqueeze(image, dim=0)
                 # 1.model 第一次放入GPU
-                create_model = MobileNetV1(class_num=10).to(device)
+                create_model = shuffleNet_g2_(class_num=5).to(device)
                 # 2. model权重文件
                 assert os.path.exists(args.weights_path), "file: '{}' dose not exist.".format(args.weights_path)
                 # 3.权重文件放入模型中
