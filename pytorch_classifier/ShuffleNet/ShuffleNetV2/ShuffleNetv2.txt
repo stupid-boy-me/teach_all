@@ -1,0 +1,33 @@
+'''
+参考链接: https://blog.csdn.net/BIT_Legend/article/details/123386705
+'''
+
+
+(1)shufflenet v2是旷视提出的shufflenet的升级版本，并被ECCV2018收录。
+(2)论文说在同等复杂度下，shufflenet v2比shufflenet和mobilenetv2更准确。
+(3)shufflenet v2是基于四条准则对shufflenet v1进行改进而得到的，这四条准则如下：
+    (G1)同等通道大小最小化内存访问量 对于轻量级CNN网络，常采用深度可分割卷积（depthwise separable convolutions），其中点卷积（ pointwise convolution）即1x1卷积复杂度最大。这里假定输入和输出特征的通道数分别为C1和C2，经证明仅当C1=C2时，内存使用量(MAC)取最小值，这个理论分析也通过实验得到证实。
+
+    (G2)过量使用组卷积会增加MAC 组卷积（group convolution）是常用的设计组件，因为它可以减少复杂度却不损失模型容量。但是这里发现，分组过多会增加MAC。
+
+    (G3)网络碎片化会降低并行度 一些网络如Inception，以及Auto ML自动产生的网络NASNET-A，它们倾向于采用“多路”结构，即存在一个lock中很多不同的小卷积或者pooling，这很容易造成网络碎片化，减低模型的并行度，相应速度会慢，这也可以通过实验得到证明。
+
+    (G4)不能忽略元素级操作 对于元素级（element-wise operators）比如ReLU和Add，虽然它们的FLOPs较小，但是却需要较大的MAC。这里实验发现如果将ResNet中残差单元中的ReLU和shortcut移除的话，速度有20%的提升。
+    ShuffleNetv2_Unit单元
+    /algdata01/yiguo.huang/hyg_deep_learning_me/ShuffleNet/ShuffleNetv2/ShuffleNetv2_Unit.png
+
+    在ShuffleNetv1的模块中，大量使用了1x1组卷积，这违背了G2原则，
+    另外v1采用了类似ResNet中的瓶颈层（bottleneck layer），输入和输出通道数不同，这违背了G1原则。
+    同时使用过多的组，也违背了G3原则。短路连接中存在大量的元素级Add运算，这违背了G4原则。
+
+    为了改善v1的缺陷，v2版本引入了一种新的运算：channel split。
+    具体来说，在开始时先将输入特征图在通道维度分成两个分支：通道数分别为C1和 C-C1，实际实现时C1=C/2。
+    左边分支做同等映射，右边的分支包含3个连续的卷积，并且输入和输出通道相同，这符合G1。
+    而且两个1x1卷积不再是组卷积，这符合G2，另外两个分支相当于已经分成两组。
+    两个分支的输出不再是Add元素，而是concat在一起，紧接着是对两个分支concat结果进行channle shuffle，
+    以保证两个分支信息交流。其实concat和channel shuffle可以和下一个模块单元的channel split合成一个元素级运算，
+    这符合原则G4。
+
+    ShuffleNetv2的整体结构如下表所示，基本与v1类似，其中设定每个block的channel数，如0.5x，1x，可以调整模型的复杂度。
+    /algdata01/yiguo.huang/hyg_deep_learning_me/ShuffleNet/ShuffleNetv2/ShuffleNetv2结构图.png
+
