@@ -49,7 +49,7 @@ tensorboard==2.7.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.0
 torch==1.7.1
-torchvision==0.12.0
+torchvision==0.11.0
 tqdm==4.62.3
 typing-extensions==3.10.0.2
 urllib3==1.26.7
