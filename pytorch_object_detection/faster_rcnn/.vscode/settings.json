@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": "/opt/anaconda/envs/fasterrcnn/bin/python",
+  "python.languageServer": "Jedi",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "jedi.workspace.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "python.terminal.activateEnvironment": true
+}

@@ -1,0 +1,64 @@
+# Faster R-CNN 默认配置（适合 VOC 上手 / 熟悉代码）
+
+data:
+  # torchvision 约定：<root>/VOCdevkit/VOC2007/...
+  # 本机 Docker 把 E:\WSL\wsl_datasets 挂到 /workspace/datasets
+  # Windows 原路径 D:\data\VOCdevkit → 请复制/软链到 E:\WSL\wsl_datasets\VOCdevkit
+  # 或在本目录执行: python download_voc.py --root /workspace/datasets
+  root: /workspace/datasets
+  year: "2007"
+  # 下载提示见 README；也可先用 download_voc.py
+  train_split: trainval
+  val_split: test
+  # 64 = 只取前 64 张图快速跑通；null = 用全部 trainval（约 5011 张）正式训练
+  small_subset: null
+  short_side: 600
+  max_size: 1000
+
+model:
+  backbone: resnet50          # resnet18 / resnet50
+  pretrained_backbone: true
+  num_classes: 21             # VOC 20 类 + background
+  anchor_sizes: [64, 128, 256]
+  anchor_ratios: [0.5, 1.0, 2.0]
+  rpn_pre_nms_top_n_train: 2000
+  rpn_post_nms_top_n_train: 2000
+  rpn_pre_nms_top_n_test: 1000
+  rpn_post_nms_top_n_test: 300
+  rpn_nms_thresh: 0.7
+  rpn_fg_iou: 0.7
+  rpn_bg_iou: 0.3
+  rpn_batch_size: 256
+  rpn_positive_fraction: 0.5
+  box_fg_iou: 0.5
+  box_bg_iou: 0.5
+  box_batch_size: 128
+  box_positive_fraction: 0.25
+  box_score_thresh: 0.05
+  box_nms_thresh: 0.5
+  box_detections_per_img: 100
+
+train:
+  device: cuda                # cuda / cpu
+  # ★ 默认推荐：联合训练（无四步）
+  strategy: joint             # joint | alternating（说明用，真正入口看脚本）
+  joint_epochs: 50            # 联合训练总 epoch（small_subset 时可先改小）
+  joint_output_dir: ./outputs/joint
+  joint_lr_step_epochs: [8]   # 这些 epoch 之后 lr *= 0.1
+  # 四步交替（仅 train_alternating.py 使用；熟悉论文用）
+  step1_epochs: 3
+  step2_epochs: 3
+  step3_epochs: 2
+  step4_epochs: 2
+  batch_size: 1               # 经典设置：每 GPU 1 张图
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.0005
+  lr_step_epochs: [2]         # 四步脚本里「每个 step 内」降 lr 用
+  print_freq: 20
+  num_workers: 2
+  output_dir: ./outputs/alternating   # 四步脚本输出目录
+  seed: 42
+
+eval:
+  score_thresh: 0.5
