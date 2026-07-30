@@ -12,5 +12,6 @@
 |pytorch_classifier|Pytorch的图像分类|
 |动物数据集地址【暂时失效】|链接：[https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ](https://pan.baidu.com/s/1b0lbd8vOfZcq0V5NyGbroQ)<br>提取码：qdbo|
 |VOC2007数据集|链接: https://pan.baidu.com/s/16OqxENtluH96rek-w1jkEA?pwd=ceaa 提取码: ceaa|
-
+|cityspaces数据集|链接: https://pan.baidu.com/s/1So9aG9_7J0_ofgLf2vdSJg?pwd=2v4f 提取码: 2v4f|
+|CDLA数据集|链接: https://pan.baidu.com/s/1oep1ZUm1a7ey5txA_WhEYA?pwd=a98k 提取码: a98k|
 
