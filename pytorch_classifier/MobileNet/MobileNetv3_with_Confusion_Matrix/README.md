@@ -1,3 +1,15 @@
+# MobileNetV3 + 混淆矩阵（完整小工程）
+
+> 轻量骨干负责「跑得动」，混淆矩阵负责「说得清」。  
+> 适合作为分类项目的毕业作业模板：能训练、能评估、能画图。
+
+- **MobileNetV3-Large**：设备稍好时优先  
+- **MobileNetV3-Small**：极限算力场景，精度通常略降  
+
+下方保留原有笔记与对比说明，便于对照阅读。
+
+---
+
 ## MobileNetv3_with_Confusion_Matrix
 (1)MobileNetV3_large:适合硬件条件较好的设备
 
