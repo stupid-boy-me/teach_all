@@ -44,7 +44,7 @@ quantization + NCNN
 | [`NCNN/`](./NCNN) | Windows 下 NCNN 工具链 + 分类推理 demo + B 站课 | 可用 |
 | [`quantization/`](./quantization) | 量化相关资料与资源链接 | 建设中 |
 | [`data_split/`](./data_split) | 数据集划分 & Dataset 加载小工具 | 可用 |
-| [`docs/`](./docs) | 基础操作、Grad-CAM、数据增强、BankTest OCR 案例等「瑞士军刀」 | 可用 |
+| [`docs/`](./docs) | 基础操作、Grad-CAM、数据增强、BankTest OCR / 车道线检测案例等「瑞士军刀」 | 可用 |
 | [`vision/`](./vision) | torchvision 风格模型/数据参考实现 | 建设中 |
 
 每个子目录都有自己的 README——点进去就是该专题的说明书。  
@@ -92,10 +92,19 @@ pip install -r requirement.txt
   → [`pytorch_classifier/Confusion_Matrix`](./pytorch_classifier/Confusion_Matrix)
 - **BankTest 银行存折 OCR 案例**：原图 → 行切分 → 结构化流水，适合做 OCR 流水线演示  
   → [`docs/BankTest`](./docs/BankTest)
+- **车道线检测可视化**：原图 / 检测叠加 / 二值掩码三联图  
+  → [`docs/LaneDetection`](./docs/LaneDetection)
 
 ---
 
-## BankTest · 银行存折 OCR 案例展示
+## 案例展示（可折叠）
+
+> 点击下方标题即可展开 / 收起详细图片与表格，避免 README 过长。
+
+<details>
+<summary><strong>BankTest · 银行存折 OCR 案例展示</strong>（点击展开）</summary>
+
+<br>
 
 针对日本银行存折（通帳）的端到端识别样例：从整页拍摄图 → 行切分 → 字段结构化解析。
 
@@ -111,7 +120,10 @@ OCR 识别 + 字段映射（getStringMap）
 
 素材目录：[`docs/BankTest`](./docs/BankTest)
 
-### 1. 原图输入
+<details>
+<summary><strong>1. 原图输入</strong></summary>
+
+<br>
 
 <p align="center">
   <img src="./docs/BankTest/passbook_origin.jpg" alt="银行存折原图" width="720" />
@@ -119,7 +131,12 @@ OCR 识别 + 字段映射（getStringMap）
 
 <p align="center"><sub>普通預金 · 第 2 页 · 共 24 条交易记录</sub></p>
 
-### 2. 行切分样例
+</details>
+
+<details>
+<summary><strong>2. 行切分样例</strong></summary>
+
+<br>
 
 将整页通账按行裁切，便于逐行 OCR。以下为代表性样例：
 
@@ -133,7 +150,12 @@ OCR 识别 + 字段映射（getStringMap）
 
 完整 24 行裁切图见：[`docs/BankTest/ocr_line`](./docs/BankTest/ocr_line)
 
-### 3. 结构化识别结果
+</details>
+
+<details>
+<summary><strong>3. 结构化识别结果</strong>（24 条流水）</summary>
+
+<br>
 
 原始映射文件：[`getStringMap.txt`](./docs/BankTest/getStringMap.txt)
 
@@ -166,7 +188,12 @@ OCR 识别 + 字段映射（getStringMap）
 | 23 | 27-4-22 | 現金 | 10,000 | カード | 58,401 |
 | 24 | 27-5-16 | 現金 | 30,000 | (221)カード | 28,401 |
 
-### 4. 字段含义速查
+</details>
+
+<details>
+<summary><strong>4. 字段含义 & 原始映射格式</strong></summary>
+
+<br>
 
 | 字段 | 含义 |
 | --- | --- |
@@ -175,8 +202,6 @@ OCR 识别 + 字段映射（getStringMap）
 | お引出し金額 | 支出金额（円） |
 | お預入れ金額 / 摘要 | 存入金额或商户 / ATM 备注 |
 | 残高 | 交易后余额（円） |
-
-### 5. 原始映射格式示例
 
 ```text
 type:{1} size:{5}
@@ -188,6 +213,68 @@ type:{1} size:{5}
 ```
 
 每一行对应 `ocr_line/lineN.jpg` 的识别结果，按「日期 / 記号 / 金额 / 摘要 / 余额」五段字段展开。
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>LaneDetection · 车道线检测结果展示</strong>（点击展开）</summary>
+
+<br>
+
+车载前视场景下的车道线检测可视化：每张图为三联结果——**原图 | 检测叠加 | 二值掩码**。
+
+素材目录：[`docs/LaneDetection`](./docs/LaneDetection)
+
+```text
+原图输入
+   ↓
+车道线检测 / 点集叠加（左右边界分色）
+   ↓
+二值掩码输出
+```
+
+<details>
+<summary><strong>样例 1 · 桥下直路</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/lane_vis_01.jpg" alt="车道线检测样例1" width="900" />
+</p>
+
+<p align="center"><sub>左：原图 · 中：左右边界点叠加 · 右：二值掩码</sub></p>
+
+</details>
+
+<details>
+<summary><strong>样例 2 · 桥下阴影路段</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/lane_vis_02.jpg" alt="车道线检测样例2" width="900" />
+</p>
+
+<p align="center"><sub>左：原图 · 中：检测叠加 · 右：二值掩码</sub></p>
+
+</details>
+
+<details>
+<summary><strong>样例 3 · 窄路 / 路缘场景</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/lane_vis_03.jpg" alt="车道线检测样例3" width="900" />
+</p>
+
+<p align="center"><sub>左：原图 · 中：检测叠加 · 右：二值掩码</sub></p>
+
+</details>
+
+</details>
 
 ---
 
