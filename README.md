@@ -94,6 +94,8 @@ pip install -r requirement.txt
   → [`docs/BankTest`](./docs/BankTest)
 - **车道线检测可视化**：原图 / 检测叠加 / 二值掩码三联图  
   → [`docs/LaneDetection`](./docs/LaneDetection)
+- **SAM2 + LoRA 车道线大模型**（进行中）：约 1274 张数据、50 epoch 的阶段性推理结果  
+  → [`docs/LaneDetection/sam2_lora`](./docs/LaneDetection/sam2_lora)
 
 ---
 
@@ -271,6 +273,92 @@ type:{1} size:{5}
 </p>
 
 <p align="center"><sub>左：原图 · 中：检测叠加 · 右：二值掩码</sub></p>
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>SAM2 + LoRA · 车道线大模型阶段性结果</strong>（点击展开）</summary>
+
+<br>
+
+基于 **SAM2** 骨干，使用 **LoRA** 做车道线 / 边界分割微调的阶段性推理展示。
+
+| 项 | 说明 |
+| --- | --- |
+| 模型 | SAM2 + LoRA |
+| 数据规模 | 约 **1274** 张 |
+| 训练进度 | **50** epoch（**未完整收敛**，结果仅作过程展示） |
+| 可视化 | 半透明彩色掩码叠加到原图，标识左右边界 / 车道线区域 |
+
+> 掩码边缘仍偏毛刺、局部会漂到路缘 / 护栏，符合「训练中」的预期；后续会继续加数据与训练轮次。
+
+素材目录：[`docs/LaneDetection/sam2_lora`](./docs/LaneDetection/sam2_lora)
+
+<details>
+<summary><strong>样例 1 · 车流路段</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_01_traffic.jpg" alt="SAM2 LoRA 车流路段" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>样例 2 · 桥下通道</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_02_underpass.jpg" alt="SAM2 LoRA 桥下通道" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>样例 3 · 多边界（护栏 / 标线 / 路缘）</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_03_multilane.jpg" alt="SAM2 LoRA 多边界" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>样例 4 · 护栏 + 路缘</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_04_fence_curb.jpg" alt="SAM2 LoRA 护栏路缘" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>样例 5 · 侧向慢行道</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_05_sidepath.jpg" alt="SAM2 LoRA 侧向慢行道" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>样例 6 · 路面标线场景</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./docs/LaneDetection/sam2_lora/sam2_lora_06_marking.jpg" alt="SAM2 LoRA 路面标线" width="820" />
+</p>
 
 </details>
 
