@@ -97,6 +97,8 @@ pip install -r requirement.txt
   → [`docs/LaneDetection`](./docs/LaneDetection)
 - **SAM2 + LoRA 车道线大模型**（进行中）：约 1274 张数据、50 epoch 的阶段性推理结果  
   → [`docs/LaneDetection/sam2_lora`](./docs/LaneDetection/sam2_lora)
+- **ViT 多精度量化对比**：flower_photos 上 QAT 对比 FP32 / INT8 / INT4 / INT2 / Bit1.58；Bit1.58 仅比 FP32 低约 1.1 个点  
+  → [`VIT/ViT-1.58b-main`](./VIT/ViT-1.58b-main)
 
 ---
 
@@ -360,6 +362,77 @@ type:{1} size:{5}
 <p align="center">
   <img src="./docs/LaneDetection/sam2_lora/sam2_lora_06_marking.jpg" alt="SAM2 LoRA 路面标线" width="820" />
 </p>
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>ViT · 多精度量化对比（FP32 / INT8 / INT4 / INT2 / Bit1.58）</strong>（点击展开）</summary>
+
+<br>
+
+在 TensorFlow `flower_photos`（5 类花卉，共 3670 张）上，用轻量 Vision Transformer + **QAT（量化感知训练）**，对比不同权重量化精度的验证准确率。灵感来自 [ViT-1.58b](https://arxiv.org/abs/2406.18051)。
+
+```text
+同一数据划分 / 同一训练设定
+      ↓
+权重：FP32 / INT8 / INT4 / INT2 / Bit1.58（三值）
+激活：非 FP32 时统一 per-token INT8（fake-quant + STE）
+      ↓
+对比 Best Val Acc / 训练曲线 / 相对掉点
+```
+
+| 项 | 说明 |
+| --- | --- |
+| 模型 | ViT-Tiny（embed=192, depth=6, heads=3） |
+| 数据 | flower_photos，train/val = 8:2 |
+| 训练 | 30 epoch，batch=32，AdamW + Cosine LR |
+| 代码 | [`VIT/ViT-1.58b-main`](./VIT/ViT-1.58b-main) |
+
+<details>
+<summary><strong>1. 精度对比柱状图</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./VIT/ViT-1.58b-main/docs/assets/precision_compare_bar.png" alt="ViT 量化精度对比柱状图" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>2. 验证准确率曲线（30 epochs）</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="./VIT/ViT-1.58b-main/docs/assets/precision_compare_curves.png" alt="ViT 量化验证准确率曲线" width="820" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>3. 数值结果与结论</strong></summary>
+
+<br>
+
+| Precision | 有效比特 | Best Val Acc | 相对 FP32 |
+| --- | ---: | ---: | ---: |
+| **INT8** | 8.00 | **74.97%** | +0.68 |
+| **FP32** | 32.00 | 74.28% | baseline |
+| **Bit1.58** | ≈1.58 | 73.19% | -1.09 |
+| **INT4** | 4.00 | 72.09% | -2.19 |
+| **INT2** | 2.00 | 71.27% | -3.01 |
+
+原始汇总：[`summary.csv`](./VIT/ViT-1.58b-main/runs/precision_compare/summary.csv)
+
+**简要结论：**
+- INT8 与 FP32 接近，甚至略高（小数据 + QAT 波动正常）。
+- Bit1.58（三值权重 `{-1,0,1}`）仅比 FP32 低约 **1.1** 个百分点，压缩潜力大。
+- INT4 / INT2 掉点更明显，但仍可用作低比特对照。
+
+更细的量化原理见：[`量化原理说明_QAT.md`](./VIT/ViT-1.58b-main/docs/量化原理说明_QAT.md)
 
 </details>
 
