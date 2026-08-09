@@ -78,6 +78,8 @@ pip install -r requirement.txt
 | VOC2007 | [百度网盘](https://pan.baidu.com/s/16OqxENtluH96rek-w1jkEA?pwd=ceaa) | `ceaa` |
 | Cityscapes | [百度网盘](https://pan.baidu.com/s/1So9aG9_7J0_ofgLf2vdSJg?pwd=2v4f) | `2v4f` |
 | CDLA | [百度网盘](https://pan.baidu.com/s/1oep1ZUm1a7ey5txA_WhEYA?pwd=a98k) | `a98k` |
+| 花分类flower_photos| [百度网盘]: (https://pan.baidu.com/s/1UvV4HTYo-83gOihH-8I0Jw) | ehde |
+
 
 更多专题数据见各子目录 README。
 
