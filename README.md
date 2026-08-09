@@ -43,6 +43,7 @@ quantization + NCNN
 | [`pytorch_segment/`](./pytorch_segment) | 语义分割：Realtime Segment 等 | 建设中 |
 | [`NCNN/`](./NCNN) | Windows 下 NCNN 工具链 + 分类推理 demo + B 站课 | 可用 |
 | [`quantization/`](./quantization) | 量化相关资料与资源链接 | 建设中 |
+| [`VIT/`](./VIT) | ViT 多精度量化对比（FP32/INT8/INT4/INT2/Bit1.58） | 可用 |
 | [`data_split/`](./data_split) | 数据集划分 & Dataset 加载小工具 | 可用 |
 | [`docs/`](./docs) | 基础操作、Grad-CAM、数据增强、BankTest OCR / 车道线检测案例等「瑞士军刀」 | 可用 |
 | [`vision/`](./vision) | torchvision 风格模型/数据参考实现 | 建设中 |

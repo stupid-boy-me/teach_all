@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.idea/
+.vscode/
+
+# large checkpoints (keep metrics only)
+runs/**/*.pth
+*.pth
+
+# caches / OS
+.DS_Store
+*.log
